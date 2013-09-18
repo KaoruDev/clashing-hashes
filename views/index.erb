@@ -12,7 +12,16 @@
 </head>
 <body>
 	<div id="accordion">
-		<h3>Add a Tweet!</h3>
+		<h3>Tweet!</h3>
+		<div>
+		<form name="Twitter" action="/" method="post">
+			Twitter accout: <input type='text' name="name"></input><br>
+			Message: <input type='text' name="msg"></input><br>
+			<button>Submit</button>
+		</form>
+		</div>
+		</form>
+		<h3>Add a hash</h3>
 		<div>
 		<form name="Twitter" action="/tweet-add" method="post">
 			<input type='text' name="first_hash"></input><br>
@@ -20,7 +29,7 @@
 			<button>Submit</button>
 		</form>
 		</div>
-		<h3>Compare Tweets!</h3>
+		<h3>Compare hash</h3>
 		<div>
 		<form name="Twitter" action="/compare" method="post">
 			<input type='text' name="first_hash"></input><br>
@@ -30,7 +39,11 @@
 		<% @hash_list.each_key do |key|%>
 			<%= key %>,&nbsp;
 		<% end %>
-		<div>
+		</div>
 	</div>
+
+	<% @tweet_list.each do |x| %>
+		@<%= x.name %> said <%= x.msg %><br>
+	<% end %>
 </body>
 </html>
