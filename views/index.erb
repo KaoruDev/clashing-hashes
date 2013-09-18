@@ -1,13 +1,36 @@
 <html>
 <head>
-<link rel="stylesheet" href="application.css" type="text/css" />
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+	<script>
+	$(function() {
+	$( "#accordion" ).accordion();
+	});
+	</script>
 </head>
 <body>
-	<h1><%= @sample %></h1>
-	<form name="Twitter" action="/twitter" method="post">
-		<input type='text' name="first_hash"></input><br>
-		<input type='text' name="second_hash"></input><br>
-		<button>Submit</button>
-	</form>
+	<div id="accordion">
+		<h3>Add a Tweet!</h3>
+		<div>
+		<form name="Twitter" action="/tweet-add" method="post">
+			<input type='text' name="first_hash"></input><br>
+			<input type='text' name="second_hash"></input><br>
+			<button>Submit</button>
+		</form>
+		</div>
+		<h3>Compare Tweets!</h3>
+		<div>
+		<form name="Twitter" action="/compare" method="post">
+			<input type='text' name="first_hash"></input><br>
+			<input type='text' name="second_hash"></input><br>
+			<button>Submit</button>
+		</form><br>
+		<% @hash_list.each_key do |key|%>
+			<%= key %>,&nbsp;
+		<% end %>
+		<div>
+	</div>
 </body>
 </html>
