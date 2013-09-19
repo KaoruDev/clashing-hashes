@@ -66,6 +66,15 @@ end
 Twitter.add_tweet("Bob", "yay baby");
 Twitter.add_tweet("smith", "yay baby");
 
+trail = 1 # unaccessable from within other methods.
+trail = some_method(trail) # Must past value through argument.
+# Can reassign variable by calling a method and having the method return 
+# a value. I.e. Now this will equal to 2
+
+def some_method(number)
+  number += 1
+end
+
 
 get '/' do
   @hash_list = Twitter.hash_list
