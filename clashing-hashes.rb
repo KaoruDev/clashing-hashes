@@ -12,7 +12,7 @@ module Twitter
   @tweet_list = [];
 
   def self.compare(x, y)
-    return "Sorry no such hash" if @hash_list[x] == nil && @hash_list[y] == nil
+    return "Sorry no such hash" if @hash_list[x] == nil || @hash_list[y] == nil
     return x if @hash_list[x] > @hash_list[y]
     return y if @hash_list[y] > @hash_list[x]
     return "Tied!" if @hash_list[x] == @hash_list[y]
